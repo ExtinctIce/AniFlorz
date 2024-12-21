@@ -6,11 +6,6 @@ export default {
       center: true,
       padding: "20px",
     },
-    extend: {
-      backgroundImage: {
-        hero: "url('background.png')",
-      },
-    },
   },
   plugins: [],
 };
