@@ -31,7 +31,7 @@ const Layout = () => {
       <header className="shadow-x sticky top-0 z-50 bg-neutral-900">
         <div className="container py-5 flex items-center justify-between">
           <Link
-            to="/"
+            to="/AniFlorz"
             className="text-4xl font-bold bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-transparent"
           >
             AniFlorz
