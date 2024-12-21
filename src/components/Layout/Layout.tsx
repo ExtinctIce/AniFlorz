@@ -101,29 +101,13 @@ const Layout = () => {
             </div>
             <nav className="hidden lg:flex gap-x-5 text-xl">
               <NavLink to="/serials">Рекомендованные</NavLink>
-              <NavLink to="/patch">Обновления</NavLink>
+              <NavLink to="/AniFlorzUpd">Обновления</NavLink>
             </nav>
           </div>
         </div>
       </header>
       <Outlet />
-      <footer className="flex justify-center bg-neutral-700">
-        <div className="flex justify-center mr-10">
-          <p>
-            Поддержать меня(как начинающего разработчика :D я старался правда)
-            сбер - 2202 2061 5485 9008
-          </p>
-        </div>
-        <div className="flex justify-center">
-          <a
-            href="https://t.me/ExtinctHaze"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p>По жалобам/идеям и вопросам мой Telegram - @ExtinctHaze</p>
-          </a>
-        </div>
-      </footer>
+      <footer className="flex justify-center bg-neutral-700"></footer>
 
       {isMenuOpen && (
         <div className="fixed inset-0 backdrop-blur-sm z-50">
@@ -144,7 +128,7 @@ const Layout = () => {
             <NavLink
               onClick={() => setIsMenuOpen(false)}
               className="text-xl"
-              to="/patch"
+              to="/AniFlorzUpd"
             >
               Обновления
             </NavLink>

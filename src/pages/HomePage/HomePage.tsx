@@ -14,8 +14,6 @@ const HomePage = () => {
     createSchedule();
   }, []);
 
-  schedule && console.log(schedule);
-
   return (
     <>
       <div className="container py-[10px]">

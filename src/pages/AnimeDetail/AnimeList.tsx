@@ -31,7 +31,6 @@ const AnimeList = () => {
         setLoading(false);
       });
   }, [activePage]);
-  console.log(allTitles);
 
   if (loading) {
     return <Loader />;

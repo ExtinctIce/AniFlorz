@@ -31,7 +31,7 @@ const AnimeDetail = () => {
     setActiveEpisode(prevEpisodeNumber.toString());
   };
 
-  // ВЫБОР КАЧЕСТВА ЧЕРЕЗ СВИТЧ
+  // ВЫБОР КАЧЕСТВА ЧЕРЕЗ СВИТЧ НЕ РЕТУРН СУАА
 
   const getVideoUrl = () => {
     const episode = title?.player?.list?.find(
