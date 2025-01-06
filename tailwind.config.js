@@ -6,11 +6,7 @@ export default {
       center: true,
       padding: "20px",
     },
-    extend: {
-      backgroundImage: {
-        hero: "url('./assets/trailer.webp')",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
