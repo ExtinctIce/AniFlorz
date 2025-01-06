@@ -8,9 +8,10 @@ export default {
     },
     extend: {
       backgroundImage: {
-        hero: "url('./assets/background.png')",
+        hero: "url('./assets/trailer.webp')",
       },
     },
   },
   plugins: [],
 };
+

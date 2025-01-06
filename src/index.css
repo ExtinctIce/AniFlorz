@@ -5,7 +5,7 @@
 html,
 body,
 #root {
-  @apply w-full h-full overflow-x-hidden bg-zinc-900 text-white bg-hero bg-cover;
+  @apply w-full h-full overflow-x-hidden bg-zinc-900 text-white bg-cover;
 }
 
 input,
@@ -21,3 +21,5 @@ anticon.anticon-left {
 li.ant-pagination-item:not(.ant-pagination-item-active) > a {
   color: rgb(158, 158, 158) !important;
 }
+
+/* @apply w-full h-full overflow-x-hidden bg-zinc-900 text-white bg-hero bg-cover;  */

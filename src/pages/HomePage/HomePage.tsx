@@ -16,14 +16,14 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="container py-[10px]">
+      <div className="container py-[10px] z-[100]">
         {/* <h1 className="text-center text-3xl font-semibold">
           Расписание выхода серий
         </h1> */}
         <div>
-          <div className="py-5">
-            <h1 className="text-3xl font-semibold ">Все онгоинги</h1>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5 mt-5">
+          <div className="py-5 z-100">
+            <h1 className="text-3xl font-semibold z-[-100]">Все онгоинги</h1>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5 mt-5 z-100">
               {schedule[0]?.list &&
                 schedule[0].list.map((item) => (
                   <AnimeCard

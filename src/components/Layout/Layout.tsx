@@ -5,6 +5,8 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { api } from "../../api";
 import { ITitle, TitleList } from "../../types/anime.type";
 import UpdateCard from "../UpdateCard/UpdateCard";
+// import video from "../../assets/video/trailerClassElite.mp4";
+// import s from "./mainly.scss";
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,11 +30,14 @@ const Layout = () => {
 
   return (
     <>
-      <header className="shadow-x sticky top-0 z-50 bg-neutral-900">
+      {/* <video autoPlay muted className="fixed object-cover w-full h-full">
+        <source className="bg-cover" src={video} type="video/mp4" />
+      </video> */}
+      <header className="shadow-x sticky top-0 z-50">
         <div className="container py-5 flex items-center justify-between">
           <Link
             to="/AniFlorz"
-            className="text-4xl font-bold bg-gradient-to-r from-pink-400 to-pink-500 bg-clip-text text-transparent"
+            className="text-4xl font-bold bg-gradient-to-r from-black to-black bg-clip-text text-transparent"
           >
             AniFlorz
           </Link>
@@ -63,7 +68,7 @@ const Layout = () => {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div
-                      className="container grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center"
+                      className="container grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center z-[1]"
                       onClick={() => setIsSearchOpen(false)}
                     >
                       {searchTitle &&
@@ -106,7 +111,15 @@ const Layout = () => {
           </div>
         </div>
       </header>
+      {/* <video autoPlay muted className="fixed object-cover w-full h-full">
+        <source className='' src={video} type="video/mp4" />
+      </video> */}
       <Outlet />
+      {/* <div className="w-[calc(100%-29%)] md:w-[calc(100%-10%)] box-border ">
+        <video autoPlay muted loop className="fixed object-cover w-full h-full">
+          <source src={video} type="video/mp4" />
+        </video>
+      </div> */}
       <footer className="flex justify-center bg-neutral-700"></footer>
 
       {isMenuOpen && (
@@ -171,6 +184,10 @@ const Layout = () => {
           </div>
         </div>
       )}
+      {/* <video autoPlay muted loop>
+        <source className="bg-cover" src={video} type="video/mp4" />
+      </video> */}
+      {/* <img src={headerBanner} alt="" /> */}
     </>
   );
 };
