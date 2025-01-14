@@ -5,7 +5,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { api } from "../../api";
 import { ITitle, TitleList } from "../../types/anime.type";
 import UpdateCard from "../UpdateCard/UpdateCard";
-import trailer from "../../assets/SoloLevel.png";
+// import trailer from "../../assets/SoloLevel.png";
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -106,13 +106,13 @@ const Layout = () => {
           </div>
         </div>
       </header>
-      <div className="w-full bg-cover z-[-1000] mb-20">
+      {/* <div className="w-full bg-cover z-[-1000] mb-20">
         <img
           className="rounded-3xl relative z-[0] w-full h-full bg-custom-gradient"
           src={trailer}
           alt=""
         />
-      </div>
+      </div> */}
       <Outlet />
 
       <footer className="flex justify-center bg-neutral-700"></footer>

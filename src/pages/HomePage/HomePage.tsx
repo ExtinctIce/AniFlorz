@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { getSchedule } from "../../api";
 import { IScheduleArray } from "../../types/schedule.type";
 import AnimeCard from "../../components/AnimeCard/AnimeCard";
-// import trailer from "../../assets/SoloLevel.png";
+import trailer from "../../assets/SoloLevel.png";
 import { Link } from "react-router-dom";
+import { FaPlay } from "react-icons/fa";
 
 const HomePage = () => {
   const [schedule, setSchedule] = useState<IScheduleArray>([]);
@@ -18,32 +19,36 @@ const HomePage = () => {
 
   return (
     <>
-      {/* <div className="w-full bg-cover z-[-1000]">
-        <img className="rounded-3xl" src={trailer} alt="" />
-      </div> */}
-      {/* <div className="w-full bg-cover z-[-1000] mb-20">
+      <div className="w-full bg-cover z-[-1000] mb-20">
         <img
-          className="rounded-3xl relative z-[0] w-full h-full bg-custom-gradient"
+          className="rounded-3xl relative z-[0] w-full h-full bg-custom-gradient brightness-50 [radial-gradient(circle,_rgba(0,_0,_0,_0.235)_0%,_rgba(0,_0,_0,_0.477)_28%,_rgba(0,_0,_0,_0.678)_62%,_rgba(0,_0,_0,_0.863)_87%),_linear-gradient(0deg,_#000,_transparent_40%)]"
           src={trailer}
           alt=""
         />
-      </div> */}
+      </div>
       <div className="">
-        <div className="absolute top-28">
-          <div className="">Поднятие уровня в одиночку</div>
-          <button className="font-bold border 2px solid black text-2xl text-black">
-            <Link
-              to={
-                "/titles/ore-dake-level-up-na-ken-season-2-arise-from-the-shadow"
-              }
-            >
-              Смотреть
+        <div className="absolute top-80 ml-12">
+          <div className="">
+            <h1 className="text-7xl font-medium mb-2">
+              Поднятие уровня в одиночку
+            </h1>
+            <p className="mb-3 text-neutral-300 text-xl">
+              По всему миру без конца появляются врата, из которых на улицы
+              городов лезут страшные чудовища. Защищают же человечество так
+              называемые охотники...
+            </p>
+          </div>
+          <button className="bg-white hover:bg-zinc-100 text-black font-bold text-sm py-2 px-5 rounded-full flex">
+            <FaPlay className="mt-1 mr-3 text-xs" />
+
+            <Link to={"/titles/ore-dake-level-up-na-ken"}>
+              Доступно на сайте
             </Link>
           </button>
         </div>
 
         <div>
-          <div className="py-2">
+          <div className="py-2 absolute top-3/4">
             <h1 className="ml-3 text-3xl font-semibold z-[1]">Все онгоинги</h1>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100">
               {schedule[0]?.list &&
@@ -62,7 +67,7 @@ const HomePage = () => {
         </div>
 
         <div>
-          <div className="py-2">
+          <div className="mt-44">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 z-100">
               {schedule[1]?.list &&
                 schedule[1].list.map((item) => (
@@ -77,7 +82,7 @@ const HomePage = () => {
                 ))}
             </div>
           </div>
-          <div className="py-2">
+          <div className="">
             <h1 className="text-2xl font-semibold"></h1>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100">
               {schedule[2]?.list &&
