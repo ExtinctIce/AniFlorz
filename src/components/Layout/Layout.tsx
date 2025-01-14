@@ -5,8 +5,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { api } from "../../api";
 import { ITitle, TitleList } from "../../types/anime.type";
 import UpdateCard from "../UpdateCard/UpdateCard";
-// import video from "../../assets/video/trailerClassElite.mp4";
-// import s from "./mainly.scss";
+import trailer from "../../assets/SoloLevel.png";
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,16 +29,13 @@ const Layout = () => {
 
   return (
     <>
-      {/* <video autoPlay muted className="fixed object-cover w-full h-full">
-        <source className="bg-cover" src={video} type="video/mp4" />
-      </video> */}
-      <header className="shadow-x sticky top-0 z-50">
-        <div className="container py-5 flex items-center justify-between">
+      <header className="shadow-x top-0">
+        <div className="container py-3 flex items-center justify-around">
           <Link
-            to="/AniFlorz"
-            className="text-4xl font-bold bg-gradient-to-r from-black to-black bg-clip-text text-transparent"
+            to="/"
+            className="text-3xl font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent"
           >
-            AniFlorz
+            Для вас
           </Link>
 
           <form
@@ -54,28 +50,28 @@ const Layout = () => {
                 onClick={() => setIsSearchOpen(true)}
                 type="text"
                 placeholder="Найти аниме"
-                className="hidden lg:flex text-white pr-4 bg-zinc-800 w-full rounded-3xl p-4"
+                className="hidden lg:flex text-white bg-zinc-900 w-full rounded-3xl p-4"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               {isSearchOpen && searchTitle && searchTitle.length > 0 && (
                 <div
-                  className="fixed inset-20 z-50 flex justify-center w-10/12"
+                  className="fixed inset-20 z-50 flex justify-center whitespace-break-spaces"
                   onClick={() => setIsSearchOpen(false)}
                 >
                   <div
-                    className="bg-zinc-800 rounded-lg shadow-lg p-2 relative max-w-xl w-full cursor-pointer"
+                    className="bg-zinc-800 rounded-lg p-2 relative max-w-xl w-full cursor-pointer truncate block"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div
-                      className="container grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center z-[1]"
+                      className="grid grid-cols-2 md:grid-cols-4 justify-items-center z-[1]"
                       onClick={() => setIsSearchOpen(false)}
                     >
                       {searchTitle &&
                         searchTitle.map((title) => (
                           <UpdateCard
                             key={title?.id}
-                            title={title?.names.ru || "N/A"}
+                            title={title?.names.ru}
                             code={title?.code || "N/A"}
                             genres={title?.genres.join(", ") || "N/A"}
                             image={title?.posters.original?.url || ""}
@@ -105,21 +101,20 @@ const Layout = () => {
               </button>
             </div>
             <nav className="hidden lg:flex gap-x-5 text-xl">
-              <NavLink to="/serials">Рекомендованные</NavLink>
-              <NavLink to="/AniFlorzUpd">Обновления</NavLink>
+              <NavLink to="/serials">Библиотека</NavLink>
             </nav>
           </div>
         </div>
       </header>
-      {/* <video autoPlay muted className="fixed object-cover w-full h-full">
-        <source className='' src={video} type="video/mp4" />
-      </video> */}
+      <div className="w-full bg-cover z-[-1000] mb-20">
+        <img
+          className="rounded-3xl relative z-[0] w-full h-full bg-custom-gradient"
+          src={trailer}
+          alt=""
+        />
+      </div>
       <Outlet />
-      {/* <div className="w-[calc(100%-29%)] md:w-[calc(100%-10%)] box-border ">
-        <video autoPlay muted loop className="fixed object-cover w-full h-full">
-          <source src={video} type="video/mp4" />
-        </video>
-      </div> */}
+
       <footer className="flex justify-center bg-neutral-700"></footer>
 
       {isMenuOpen && (
@@ -184,10 +179,6 @@ const Layout = () => {
           </div>
         </div>
       )}
-      {/* <video autoPlay muted loop>
-        <source className="bg-cover" src={video} type="video/mp4" />
-      </video> */}
-      {/* <img src={headerBanner} alt="" /> */}
     </>
   );
 };
