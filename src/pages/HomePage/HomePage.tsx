@@ -41,7 +41,7 @@ const HomePage = () => {
           <button className="bg-white hover:bg-zinc-100 text-black font-bold text-sm py-2 px-5 rounded-full flex">
             <FaPlay className="mt-1 mr-3 text-xs" />
 
-            <Link to={"/titles/ore-dake-level-up-na-ken"}>
+            <Link to={"/titles/ore-dake-level-up-na-ken-season-2-arise-from-the-shadow"}>
               Доступно на сайте
             </Link>
           </button>
@@ -49,7 +49,9 @@ const HomePage = () => {
 
         <div>
           <div className="py-2 absolute top-3/4">
-            <h1 className="ml-3 text-3xl font-semibold z-[1]">Все онгоинги</h1>
+            <h1 className="ml-3 text-3xl font-semibold z-[1]">
+              Выходят сейчас
+            </h1>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100">
               {schedule[0]?.list &&
                 schedule[0].list.map((item) => (
@@ -67,7 +69,7 @@ const HomePage = () => {
         </div>
 
         <div>
-          <div className="mt-44">
+          <div className="mt-48">
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 z-100">
               {schedule[1]?.list &&
                 schedule[1].list.map((item) => (
@@ -83,7 +85,6 @@ const HomePage = () => {
             </div>
           </div>
           <div className="">
-            <h1 className="text-2xl font-semibold"></h1>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100">
               {schedule[2]?.list &&
                 schedule[2].list.map((item) => (
@@ -99,7 +100,6 @@ const HomePage = () => {
             </div>
           </div>
           <div className="py-2">
-            <h1 className="text-2xl font-semibold"></h1>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5 mt-5">
               {schedule[3]?.list &&
                 schedule[3].list.map((item) => (
@@ -116,7 +116,6 @@ const HomePage = () => {
           </div>
         </div>
         <div className="py-2">
-          <h1 className="text-2xl font-semibold"></h1>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5">
             {schedule[4]?.list &&
               schedule[4].list.map((item) => (
@@ -132,7 +131,6 @@ const HomePage = () => {
           </div>
         </div>
         <div className="py-2">
-          <h1 className="text-2xl font-semibold"></h1>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-5">
             {schedule[5]?.list &&
               schedule[5].list.map((item) => (
@@ -148,7 +146,6 @@ const HomePage = () => {
           </div>
         </div>
         <div className="py-2">
-          <h1 className="text-2xl font-semibold"></h1>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-5">
             {schedule[6]?.list &&
               schedule[6].list.map((item) => (

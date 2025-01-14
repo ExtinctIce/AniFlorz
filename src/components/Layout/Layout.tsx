@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { HiBars3BottomLeft, HiXMark } from "react-icons/hi2";
 import { TbZoom } from "react-icons/tb";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { api } from "../../api";
 import { ITitle, TitleList } from "../../types/anime.type";
 import UpdateCard from "../UpdateCard/UpdateCard";
-// import trailer from "../../assets/SoloLevel.png";
 
 const Layout = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [searchTitle, setSearchTitle] = useState<ITitle[]>();
@@ -91,94 +88,16 @@ const Layout = () => {
           </form>
 
           <div className="flex items-center">
-            <div className="lg:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? (
-                  <HiXMark className="text-3xl cursor-pointer" />
-                ) : (
-                  <HiBars3BottomLeft className="text-3xl cursor-pointer" />
-                )}
-              </button>
-            </div>
+            <div className="lg:hidden"></div>
             <nav className="hidden lg:flex gap-x-5 text-xl">
               <NavLink to="/serials">Библиотека</NavLink>
             </nav>
           </div>
         </div>
       </header>
-      {/* <div className="w-full bg-cover z-[-1000] mb-20">
-        <img
-          className="rounded-3xl relative z-[0] w-full h-full bg-custom-gradient"
-          src={trailer}
-          alt=""
-        />
-      </div> */}
       <Outlet />
 
-      <footer className="flex justify-center bg-neutral-700"></footer>
-
-      {isMenuOpen && (
-        <div className="fixed inset-0 backdrop-blur-sm z-50">
-          <div className="w-64 shadow-lg">
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4"
-            >
-              <HiBars3BottomLeft className="text-3xl cursor-pointer" />
-            </button>
-            <NavLink
-              onClick={() => setIsMenuOpen(false)}
-              className="text-xl mr-10"
-              to="/serials"
-            >
-              Все тайтлы
-            </NavLink>
-            <NavLink
-              onClick={() => setIsMenuOpen(false)}
-              className="text-xl"
-              to="/AniFlorzUpd"
-            >
-              Обновления
-            </NavLink>
-          </div>
-          <form
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            className="flex w-full py-8"
-          >
-            <TbZoom className="text-3xl items-center m-2 cursor-pointer" />
-            <input
-              type="text"
-              placeholder="Поиск тайтла"
-              className="w-full p-2 text-white bg-zinc-800 rounded-3xl"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <button
-              onClick={getSearchTitles}
-              className="items-center p-2 py-3 m-1 bg-black rounded-lg"
-            >
-              Найти
-            </button>
-          </form>
-          <div
-            className="container grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center"
-            onClick={() => setIsSearchOpen(false)}
-          >
-            {searchTitle &&
-              searchTitle.map((title) => (
-                <UpdateCard
-                  key={title?.id}
-                  title={title?.names.ru || "N/A"}
-                  code={title?.code || "N/A"}
-                  genres={title?.genres.join(", ") || "N/A"}
-                  image={title?.posters.original?.url || ""}
-                />
-              ))}
-          </div>
-        </div>
-      )}
+      <footer className="flex justify-center bg-neutral-900">xd</footer>
     </>
   );
 };
