@@ -23,7 +23,6 @@ const Layout = () => {
         setSearchTitle(response?.data.list);
       });
   };
-
   return (
     <>
       <header className="shadow-x top-0">

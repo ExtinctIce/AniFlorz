@@ -17,7 +17,7 @@ const AnimeDetail = () => {
 
   useEffect(() => {
     createTitle();
-  }, []);
+  }, [code]);
 
   const handleNextEpisode = () => {
     const totalEpisodes = title?.player?.list?.length || 0;
