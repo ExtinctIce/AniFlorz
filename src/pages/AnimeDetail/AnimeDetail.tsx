@@ -66,9 +66,6 @@ const AnimeDetail = () => {
           <p className="text-base md:text-lg text-gray-500 hidden md:block">
             {title?.description}
           </p>
-          {/* <div className="flex flex-col gap-2">
-            <p className="font-medium">Жанры: {title?.genres?.join(", ")}</p>
-          </div> */}
           <div className="flex gap-4">
             <select
               value={activeEpisode}

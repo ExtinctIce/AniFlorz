@@ -9,6 +9,7 @@ interface IAnimeCard {
   handleChooseAnimeCard: (id: number, type: string) => void;
   animeCardId: number;
   desc?: string;
+  
 }
 
 const AnimeCard: FC<IAnimeCard> = ({
@@ -29,9 +30,10 @@ const AnimeCard: FC<IAnimeCard> = ({
     >
       <Link to={`/titles/${code}`} className="relative block">
         {animeCardId === id && (
-          <div className="absolute top-0 inset-0 bg-black/80 z-10 flex items-center justify-center p-4">
-            <p className="text-white text-center text-sm md:text-base">
-              {desc?.slice(0, 100)}
+          <div className="absolute top-0 inset-0 bg-black/80 z-10 flex justify-center p-1">
+            <p className="text-white  text-sm md:text-base">
+              {desc?.slice(0, 90)}
+              <div className="relative top-14 text-lg">{title?.slice(0, 40)}</div>
             </p>
           </div>
         )}
@@ -41,9 +43,9 @@ const AnimeCard: FC<IAnimeCard> = ({
           className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-95"
         />
       </Link>
-      <Link
+      <Link 
         to={`/titles/${code}`}
-        className="block mt-2 text-xl font-normal text-center truncate hover:text-blue-500"
+        className="relative bottom-10 block mt-2 text-xl font-normal text-center truncate"
       >
         {title}
       </Link>

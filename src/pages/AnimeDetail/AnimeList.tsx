@@ -22,7 +22,7 @@ const AnimeList = () => {
         params: {
           playlist_type: "array",
           page: activePage,
-          items_per_page: 8,
+          items_per_page: 12,
         },
       })
       .then((responce) => {

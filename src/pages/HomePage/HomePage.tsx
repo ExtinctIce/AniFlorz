@@ -27,7 +27,10 @@ const HomePage = () => {
   const descCardId = schedule[0]?.list.find((card) => card.id === animeCardId);
   const description = descCardId?.description;
 
-  const descCardId2 = schedule[2]?.list.find((card) => card.id === animeCardId);
+  const descCardId1 = schedule[1]?.list.find((card) => card.id === animeCardId);
+  const description1 = descCardId1?.description;
+
+  const descCardId2 = schedule[6]?.list.find((card) => card.id === animeCardId);
   const description2 = descCardId2?.description;
 
   const descCardId3 = schedule[2]?.list.find((card) => card.id === animeCardId);
@@ -42,9 +45,6 @@ const HomePage = () => {
   const descCardId6 = schedule[5]?.list.find((card) => card.id === animeCardId);
   const description6 = descCardId6?.description;
 
-  const descCardId7 = schedule[6]?.list.find((card) => card.id === animeCardId);
-  const description7 = descCardId7?.description;
-
   return (
     <>
       <div className="w-full bg-cover z-[-10] mb-20">
@@ -58,7 +58,7 @@ const HomePage = () => {
         <div className="absolute top-80 ml-12">
           <div className="">
             <h1 className="text-7xl font-medium mb-2">
-              Поднятие уровня в одиночку
+              Поднятие уровня в одиночку 2
             </h1>
             <p className="mb-3 text-neutral-300 text-xl">
               По всему миру без конца появляются врата, из которых на улицы
@@ -66,7 +66,7 @@ const HomePage = () => {
               называемые охотники...
             </p>
           </div>
-          <button className="bg-white hover:bg-zinc-100 text-black font-bold text-sm py-2 px-5 rounded-full flex">
+          <button className="bg-white hover:bg-zinc-100 text-black font-bold text-sm py-3 px-6 rounded-full flex">
             <FaPlay className="mt-1 mr-3 text-xs" />
 
             <Link
@@ -114,7 +114,7 @@ const HomePage = () => {
                     poster={item.posters.original.url}
                     title={item.names.ru}
                     code={item.code}
-                    desc={description2}
+                    desc={description1}
                     animeCardId={animeCardId}
                     handleChooseAnimeCard={handleChooseAnimeCard}
                     // genres={item.genres}
@@ -205,7 +205,7 @@ const HomePage = () => {
                   poster={item.posters.original.url}
                   title={item.names.ru}
                   code={item.code}
-                  desc={description7}
+                  desc={description2}
                   animeCardId={animeCardId}
                   handleChooseAnimeCard={handleChooseAnimeCard}
                   // genres={item.genres}
