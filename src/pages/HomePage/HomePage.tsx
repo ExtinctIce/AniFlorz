@@ -84,28 +84,28 @@ const HomePage = () => {
             <h1 className="ml-5 text-3xl font-semibold z-[1]">
               Выходят сейчас
             </h1>
-            <div className="ml-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5">
-              {schedule[0]?.list &&
-                schedule[0].list.map((item) => (
-                  <AnimeCard
-                    id={item.id}
-                    key={item.id}
-                    poster={item.posters.original.url}
-                    title={item.names.ru}
-                    code={item.code}
-                    desc={description}
-                    animeCardId={animeCardId}
-                    handleChooseAnimeCard={handleChooseAnimeCard}
-                    // genres={item.genres}
-                  />
-                ))}
-            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-6 ml-2     ">
+            {schedule[5]?.list &&
+              schedule[5].list.map((item) => (
+                <AnimeCard
+                  id={item.id}
+                  key={item.id}
+                  poster={item.posters.original.url}
+                  title={item.names.ru}
+                  code={item.code}
+                  desc={description6}
+                  animeCardId={animeCardId}
+                  handleChooseAnimeCard={handleChooseAnimeCard}
+                  // genres={item.genres}
+                />
+              ))}
+          </div>
           </div>
         </div>
 
         <div>
           <div className="mt-48">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 z-100">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 z-100 ml-2">
               {schedule[1]?.list &&
                 schedule[1].list.map((item) => (
                   <AnimeCard
@@ -123,7 +123,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5 z-100 ml-2">
               {schedule[2]?.list &&
                 schedule[2].list.map((item) => (
                   <AnimeCard
@@ -140,8 +140,8 @@ const HomePage = () => {
                 ))}
             </div>
           </div>
-          <div className="py-2">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5 mt-5">
+          <div className="">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5 mt-5 ml-2">
               {schedule[3]?.list &&
                 schedule[3].list.map((item) => (
                   <AnimeCard
@@ -159,8 +159,8 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="py-2">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5">
+        <div className="mt-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-9 gap-5 ml-2">
             {schedule[4]?.list &&
               schedule[4].list.map((item) => (
                 <AnimeCard
@@ -177,17 +177,17 @@ const HomePage = () => {
               ))}
           </div>
         </div>
-        <div className="py-2">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-5">
-            {schedule[5]?.list &&
-              schedule[5].list.map((item) => (
+        <div className="">
+          <div className="ml-3 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-5 mt-5">
+            {schedule[0]?.list &&
+              schedule[0].list.map((item) => (
                 <AnimeCard
                   id={item.id}
                   key={item.id}
                   poster={item.posters.original.url}
                   title={item.names.ru}
                   code={item.code}
-                  desc={description6}
+                  desc={description}
                   animeCardId={animeCardId}
                   handleChooseAnimeCard={handleChooseAnimeCard}
                   // genres={item.genres}
@@ -195,8 +195,8 @@ const HomePage = () => {
               ))}
           </div>
         </div>
-        <div className="py-2">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-5">
+        <div className="">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-5 mt-5 ml-2">
             {schedule[6]?.list &&
               schedule[6].list.map((item) => (
                 <AnimeCard

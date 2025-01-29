@@ -9,7 +9,6 @@ interface IAnimeCard {
   handleChooseAnimeCard: (id: number, type: string) => void;
   animeCardId: number;
   desc?: string;
-  
 }
 
 const AnimeCard: FC<IAnimeCard> = ({
@@ -30,25 +29,23 @@ const AnimeCard: FC<IAnimeCard> = ({
     >
       <Link to={`/titles/${code}`} className="relative block">
         {animeCardId === id && (
-          <div className="absolute top-0 inset-0 bg-black/80 z-10 flex justify-center p-1">
-            <p className="text-white  text-sm md:text-base">
+          <div className="absolute top-0 inset-0 bg-black/80 z-10 flex p-2 group-hover:scale-105 flex-col">
+            <p className="relative text-lg font-bold m-2 opacity-80">{title?.slice(0, 71)}</p>
+            <p className="text-white text-sm md:text-base opacity-80 m-1">
               {desc?.slice(0, 90)}
-              <div className="relative top-14 text-lg">{title?.slice(0, 40)}</div>
             </p>
           </div>
         )}
         <img
           src={`https://static-libria.weekstorm.one${poster}`}
           alt="poster"
-          className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-95"
+          className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-105 brightness-90 hover:blur-3xl"
         />
       </Link>
-      <Link 
+      <Link
         to={`/titles/${code}`}
         className="relative bottom-10 block mt-2 text-xl font-normal text-center truncate"
-      >
-        {title}
-      </Link>
+      ></Link>
     </div>
   );
 };

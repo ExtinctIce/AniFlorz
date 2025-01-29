@@ -6,7 +6,7 @@ const Layout = () => {
     <>
       <SearchMain />
       <Outlet />
-      <footer className="flex justify-center bg-neutral-900">xd</footer>
+      <footer className="flex justify-center bg-black text-black">@ExtinctHaze</footer>
     </>
   );
 };

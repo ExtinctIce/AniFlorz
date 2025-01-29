@@ -5,7 +5,7 @@
 html,
 body,
 #root {
-  @apply bg-neutral-950 text-white;
+  @apply bg-black text-white;
 }
 /* h-full w-full overflow-x-hidden bg-cover*/
 input,

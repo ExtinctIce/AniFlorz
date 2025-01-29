@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ITitle, TitleList } from "../types/anime.type";
 import { api } from "../api";
 import { Link, NavLink } from "react-router-dom";
@@ -10,37 +10,44 @@ const SearchMain = () => {
   const [search, setSearch] = useState("");
   const [searchTitle, setSearchTitle] = useState<ITitle[]>();
 
-  const getSearchTitles = () => {
-    // api
-    //   .get<TitleList>("/v3/title/search", {
-    //     params: {
-    //       items_per_page: 18,
-    //       search: search,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     setSearchTitle(response?.data.list);
-    //   });
+  // дебаунс для запроса, такой вот способ для высокой производительности ;)
+  const debounce = (fn: Function, ms = 300) => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    return function (this: any, ...args: any[]) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn.apply(this, args), ms);
+    };
   };
 
-
-  useEffect(() => {
-    api
-      .get<TitleList>("/v3/title/search", {
+  const getSearchTitles = useCallback(async () => {
+    if (!search) {
+      setSearchTitle([]);
+      return;
+    }
+    try {
+      const response = await api.get<TitleList>("/v3/title/search", {
         params: {
-          items_per_page: 15,
+          items_per_page: 12,
           search: search,
         },
-      })
-      .then((response) => {
-        setSearchTitle(response?.data.list);
       });
-  }, [getSearchTitles]);
+      setSearchTitle(response?.data.list || []);
+    } catch (error) {}
+  }, [search]);
+
+  const debouncedSearch = useMemo(
+    () => debounce(getSearchTitles, 300),
+    [getSearchTitles]
+  );
+
+  useEffect(() => {
+    debouncedSearch();
+  }, [debouncedSearch]);
 
   return (
     <>
-      <header className="shadow-x top-0">
-        <div className="container py-3 flex items-center justify-around">
+      <header className="shadow-x top-0 bg-neutral-950">
+        <div className="container flex items-center justify-around">
           <Link
             to="/"
             className="text-3xl font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent"
@@ -81,35 +88,70 @@ const SearchMain = () => {
           </div>
         </div>
         {isSearchOpen && searchTitle && searchTitle.length > 0 && (
-                <div
-                  className="fixed z-50 flex justify-center inset-0 bg-black bg-opacity-50 pt-20"
-                  onClick={() => setIsSearchOpen(false)}
-                >
-                  <div
-                    className="bg-neutral-950 max-w-6xl w-full rounded-2xl cursor-pointer truncate"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div
-                      className="grid grid-cols-6"
-                      onClick={() => setIsSearchOpen(false)}
-                    >
-                      {searchTitle &&
-                        searchTitle.map((title) => (
-                          <UpdateCard
-                            key={title?.id}
-                            title={title?.names.ru}
-                            code={title?.code || "N/A"}
-                            image={title?.posters.original?.url || ""}
-                            genres={""}
-                          />
-                        ))}
-                    </div>
-                  </div>
-                </div>
-              )}
+          <div
+            className="fixed z-50 flex justify-center inset-0 bg-black bg-opacity-50 py-14"
+            onClick={() => setIsSearchOpen(false)}
+          >
+            <div
+              className="bg-neutral-950 max-w-6xl max-h-screen w-full rounded-2xl cursor-pointer truncate"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div
+                className="grid grid-cols-6"
+                onClick={() => setIsSearchOpen(false)}
+              >
+                {searchTitle &&
+                  searchTitle.map((title) => (
+                    <UpdateCard
+                      key={title?.id}
+                      title={title?.names.ru}
+                      code={title?.code || "N/A"}
+                      image={title?.posters.original?.url || ""}
+                      genres={""}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
 };
 
 export default SearchMain;
+
+// const getSearchTitles = () => {
+//   // api
+//   //   .get<TitleList>("/v3/title/search", {
+//   //     params: {
+//   //       items_per_page: 12,
+//   //       search: search,
+//   //     },
+//   //   })
+//   //   .then((response) => {
+//   //     console.log(response.data);
+//   //     setSearchTitle(response?.data.list);
+//   //   });
+// };
+
+// useEffect(() => {
+//   api
+//     .get<TitleList>("/v3/title/search", {
+//       params: {
+//         items_per_page: 12,
+//         search: search,
+//       },
+//     })
+//     .then((response) => {
+//       console.log(response.data);
+//       setSearchTitle(response?.data.list);
+//     });
+// }, [getSearchTitles]);
+// const debounce = (func: (...args: any[]) => void, delay: number) => {
+//   let timeoutId: NodeJS.Timeout;
+//   return (...args: any[]) => {
+//     clearTimeout(timeoutId);
+//     timeoutId = setTimeout(() => func(...args), delay);
+//   };
+// };

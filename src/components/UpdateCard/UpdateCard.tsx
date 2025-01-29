@@ -11,9 +11,6 @@ const UpdateCard = ({ code, image, title }: UpdateCardProps) => {
         <Link to={`/titles/${code}`}>
           <h2 className="text-center mt-2 text-lg truncate">{title}</h2>
         </Link>
-        {/* <p className="py-1 text-center mb-1 flex justify-center text-gray-500">
-          {genres}
-        </p> */}
       </div>
     </>
   );
