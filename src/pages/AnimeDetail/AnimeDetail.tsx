@@ -3,11 +3,9 @@ import { getTitle } from "../../api";
 import { useParams } from "react-router-dom";
 import { List } from "../../types/schedule.type";
 import ReactPlayer from "react-player";
-// import { BsFillGearFill } from "react-icons/bs";
 
 const AnimeDetail = () => {
   const { code } = useParams();
-  // const [idTitleSeason, setidTitleSeason] = useState<List>();
   const [title, setTitle] = useState<List>();
   const [activeEpisode, setActiveEpisode] = useState<string>("1");
   const [activeQuality, setActiveQuality] = useState<string>("fhd");
@@ -144,7 +142,7 @@ const AnimeDetail = () => {
         {title?.player?.list?.map((episode) => (
           <div
             key={episode.episode}
-            className={`bg-neutral-900 rounded-lg px-4 py-2 text-white cursor-pointer hover:bg-neutral-800 transition-colors duration-200 ${
+            className={`bg-neutral-900 rounded-lg px-4 py-2 text-white hover:bg-neutral-800 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-neutral-800 ${
               activeEpisode === String(episode.episode) ? "bg-neutral-900" : ""
             }`}
             onClick={() => handleEpisodeClick(String(episode.episode))}

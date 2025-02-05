@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ITitle, TitleList } from "../types/anime.type";
 import { api } from "../api";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import UpdateCard from "../components/UpdateCard/UpdateCard";
 import { TbZoom } from "react-icons/tb";
 
@@ -46,22 +46,22 @@ const SearchMain = () => {
 
   return (
     <>
-      <header className="shadow-x top-0 bg-neutral-950">
-        <div className="container flex items-center justify-around">
+      <header className="shadow-x top-0 ">
+        <div className="container flex items-center justify-between">
           <Link
             to="/"
-            className="text-3xl font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent"
+            className="z-30 text-3xl font-bold bg-gradient-to-r from-white to-white bg-clip-text text-transparent"
           >
-            Для вас
+            Главная для вас
           </Link>
 
           <form
             onClick={(e) => {
               e.preventDefault();
             }}
-            className="w-7/12 flex"
+            className="w-7/12 flex z-30"
           >
-            <TbZoom className="text-3xl hidden lg:flex items-center m-3" />
+            <TbZoom className="text-3xl hidden lg:flex items-center m-3 hover:scale-110 duration-200 cursor-pointer" />
             <div className="w-full">
               <input
                 onClick={() => setIsSearchOpen(true)}
@@ -72,19 +72,18 @@ const SearchMain = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <button
-              onClick={getSearchTitles}
-              className="hidden lg:flex items-center m-2"
-            >
-              Найти
-            </button>
           </form>
 
-          <div className="flex items-center">
+          <div className="flex items-center z-30">
             <div className="lg:hidden"></div>
-            <nav className="hidden lg:flex gap-x-5 text-xl">
-              <NavLink to="/serials">Библиотека</NavLink>
-            </nav>
+            <button className="py-2 px-6 font-semibold border border-pink-800 bg-pink-600 shadow rounded-3xl hover:scale-105 duration-200 transform">
+              Premium
+            </button>
+            <Link to="/login">
+              <button className="py-2 px-6 font-semibold border border-neutral-800 ml-3 bg-neutral-800 shadow rounded-3xl hover:bg-neutral-700 duration-200">
+                Войти
+              </button>
+            </Link>
           </div>
         </div>
         {isSearchOpen && searchTitle && searchTitle.length > 0 && (
@@ -107,7 +106,6 @@ const SearchMain = () => {
                       title={title?.names.ru}
                       code={title?.code || "N/A"}
                       image={title?.posters.original?.url || ""}
-                      genres={""}
                     />
                   ))}
               </div>

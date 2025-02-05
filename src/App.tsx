@@ -3,7 +3,9 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./pages/HomePage/HomePage";
 import AnimeDetail from "./pages/AnimeDetail/AnimeDetail";
 import AnimeList from "./pages/AnimeDetail/AnimeList";
-import AniFlorzUpd from "./UpdatesAniFlorz/Aniflorz";
+// import AniFlorzUpd from "./UpdatesAniFlorz/Aniflorz";
+import OnGoing from "./pages/FullOngoing/OnGoing";
+import Loginfrontend from "./pages/Log/LoginFrontend";
 
 export const App = () => {
   return (
@@ -13,7 +15,9 @@ export const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/titles/:code" element={<AnimeDetail />} />
           <Route path="/serials" element={<AnimeList />} />
-          <Route path="/AniFlorzUpd" element={<AniFlorzUpd />} />
+          <Route path="/gotitles" element={<OnGoing />} />
+          <Route path="/login" element={<Loginfrontend />} />
+          {/* <Route path="/AniFlorzUpd" element={<AniFlorzUpd />} /> */}
         </Route>
       </Routes>
     </>
