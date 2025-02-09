@@ -3,6 +3,7 @@ import { api } from "../../api";
 import { Pagination, PaginationProps } from "antd";
 import { TitleList, IPagination, ITitle } from "../../types/anime.type";
 import UpdateCard from "../../components/UpdateCard/UpdateCard";
+import SearchMain from "../../widgets/SearchMain";
 
 const AnimeList = () => {
   const [allTitles, setAllTitles] = useState<ITitle[]>();
@@ -30,6 +31,8 @@ const AnimeList = () => {
 
   return (
     <>
+      <SearchMain />
+
       <div className="container py-5">
         <div className="container grid grid-cols-2 md:grid-cols-8 gap-5 justify-items-center">
           {allTitles &&

@@ -4,7 +4,6 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "5px",
     },
     extend: {
       backgroundImage: {

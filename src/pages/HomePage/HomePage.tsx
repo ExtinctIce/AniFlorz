@@ -108,6 +108,7 @@ import AnimeCard from "../../components/AnimeCard/AnimeCard";
 import TrailerAnimeRandom from "../../features/MainPage/TrailerAnimeRandom";
 import AnimeCategoryAll from "../../features/MainPage/AnimeCategoryAll";
 import Integration from "../../shared/IntegrationMain";
+import SearchMain from "../../widgets/SearchMain";
 
 const HomePage = () => {
   const [schedule, setSchedule] = useState<IScheduleArray>([]);
@@ -132,6 +133,7 @@ const HomePage = () => {
 
   return (
     <>
+      <SearchMain />
       <TrailerAnimeRandom />
       <div>
         <div className="py-2 absolute top-3/4">
@@ -161,7 +163,8 @@ const HomePage = () => {
         </div>
       </div>
       <h1 className="ml-5 text-3xl font-semibold mb-1">Библиотека</h1>
-      <AnimeCategoryAll />      
+      <AnimeCategoryAll />
+      <footer className="flex justify-center bg-black text-black">@ExtinctHaze</footer>
     </>
   );
 };

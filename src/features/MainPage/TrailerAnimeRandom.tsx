@@ -15,20 +15,23 @@ const TrailerAnimeRandom = () => {
       <div className="">
         <div className="absolute top-80 ml-12">
           <div className="">
-            <h1 className="text-7xl font-medium mb-2">
-            Мастера Меча Онлайн 2
-            </h1>
+            <h1 className="text-7xl font-medium mb-2">Мастера Меча Онлайн 2</h1>
             <p className="mb-3 text-neutral-300 text-xl">
               Череда загадочных смертей происходит в новой виртуальной VRMMO
               "Призрачная пуля". Игрок, назвавший себя Deathgun, обладает
               способностью убивать игроков в реальной жизни...
             </p>
           </div>
-          <button className="bg-zinc-100 hover:bg-zinc-300 text-black font-bold text-sm py-3 px-6 rounded-full flex duration-200">
-            <FaPlay className="mt-1 mr-3 text-xs" />
+          <div className="flex gap-3">
+            <button className="bg-zinc-100 hover:bg-zinc-300 text-black font-bold text-sm py-3 px-6 rounded-full flex duration-200">
+              <FaPlay className="mt-1 mr-3 text-xs" />
 
-            <Link to={"/titles/sword-art-online-ii"}>Доступно на сайте</Link>
-          </button>
+              <Link to={"/titles/sword-art-online-ii"}>Доступно на сайте</Link>
+            </button>
+            <button className="bg-neutral-800 hover:bg-neutral-900 text-zinc-100 font-bold text-sm py-3 px-6 rounded-full hover:scale-105 flex duration-300">
+              <Link to={"/titles/sword-art-online-ii"}>Подробнее</Link>
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getSchedule } from "../../api";
 import { IScheduleArray } from "../../types/schedule.type";
 import AnimeCard from "../../components/AnimeCard/AnimeCard";
+import SearchMain from "../../widgets/SearchMain";
 
 const OnGoing = () => {
   const [schedule, setSchedule] = useState<IScheduleArray>([]);
@@ -44,6 +45,8 @@ const OnGoing = () => {
 
   return (
     <>
+      <SearchMain />
+
       <div>
         <div className="py-2">
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-4 mt-6 ml-2">

@@ -3,6 +3,7 @@ import { getTitle } from "../../api";
 import { useParams } from "react-router-dom";
 import { List } from "../../types/schedule.type";
 import ReactPlayer from "react-player";
+import SearchMain from "../../widgets/SearchMain";
 
 const AnimeDetail = () => {
   const { code } = useParams();
@@ -81,9 +82,11 @@ const AnimeDetail = () => {
 
   return (
     <div className="">
+      <SearchMain />
+
       <div className="">
         <div className="">
-          <div className="mt-2">
+          <div className="">
             {title?.player?.list?.find(
               (ep) => ep.episode === Number(activeEpisode)
             ) && (

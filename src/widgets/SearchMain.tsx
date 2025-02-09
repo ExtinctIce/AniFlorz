@@ -46,7 +46,7 @@ const SearchMain = () => {
 
   return (
     <>
-      <header className="shadow-x top-0 ">
+      <header className="shadow-x top-0">
         <div className="container flex items-center justify-between">
           <Link
             to="/"
@@ -87,6 +87,7 @@ const SearchMain = () => {
           </div>
         </div>
         {isSearchOpen && searchTitle && searchTitle.length > 0 && (
+          
           <div
             className="fixed z-50 flex justify-center inset-0 bg-black bg-opacity-50 py-14"
             onClick={() => setIsSearchOpen(false)}

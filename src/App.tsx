@@ -6,6 +6,7 @@ import AnimeList from "./pages/AnimeDetail/AnimeList";
 // import AniFlorzUpd from "./UpdatesAniFlorz/Aniflorz";
 import OnGoing from "./pages/FullOngoing/OnGoing";
 import Loginfrontend from "./pages/Log/LoginFrontend";
+import RegistrationFrontend from "./pages/Log/RegistrationFront";
 
 export const App = () => {
   return (
@@ -17,7 +18,7 @@ export const App = () => {
           <Route path="/serials" element={<AnimeList />} />
           <Route path="/gotitles" element={<OnGoing />} />
           <Route path="/login" element={<Loginfrontend />} />
-          {/* <Route path="/AniFlorzUpd" element={<AniFlorzUpd />} /> */}
+          <Route path="/register" element={<RegistrationFrontend />} />
         </Route>
       </Routes>
     </>
