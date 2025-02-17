@@ -32,7 +32,7 @@ const Searcher = () => {
       });
       setSearchTitle(response?.data.list || []);
     } catch (error) {
-      console.error("Ошибка при поиске:", error); // Добавил логирование ошибки
+      console.error("Ошибка при поиске:", error); 
     }
   }, [search]);
 

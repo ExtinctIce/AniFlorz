@@ -5,7 +5,7 @@ import { useState } from "react";
 import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
 
 const TrailerAnimeRandom = () => {
-  const [muted, setMuted] = useState(true); // Начальное состояние: выключен звук
+  const [muted, setMuted] = useState(true); 
 
   const toggleMuted = () => {
     setMuted(!muted);
