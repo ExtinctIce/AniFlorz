@@ -5,14 +5,14 @@ import { useState } from "react";
 import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
 
 const TrailerAnimeRandom = () => {
-  const [muted, setMuted] = useState(true); 
+  const [muted, setMuted] = useState(true);
 
   const toggleMuted = () => {
     setMuted(!muted);
   };
   return (
     <>
-      <div className="w-full bg-cover z-[-10] mb-20">
+      <div className="w-full bg-cover z-[-10]">
         <video
           className="rounded-3xl bottom-14 relative z-[0] w-full h-full bg-custom-gradient brightness-50 [radial-gradient(circle,_rgba(0,_0,_0,_0.235)_0%,_rgba(0,_0,_0,_0.477)_28%,_rgba(0,_0,_0,_0.678)_62%,_rgba(0,_0,_0,_0.863)_87%),_linear-gradient(0deg,_#000,_transparent_40%)]"
           src={trailer}
@@ -20,7 +20,9 @@ const TrailerAnimeRandom = () => {
           loop
           muted={muted}
         />
+        <div className="absolute inset-0 rounded-3xl custom-overlay"></div>
       </div>
+      
       <div className="">
         <div className="absolute top-80 ml-12">
           <div className="">
@@ -38,7 +40,6 @@ const TrailerAnimeRandom = () => {
           <div className="flex gap-3">
             <button className="bg-zinc-100 hover:bg-zinc-300 text-black font-bold text-sm py-3 px-6 rounded-full flex duration-200">
               <FaPlay className="mt-1 mr-3 text-xs" />
-
               <Link
                 to={
                   "/titles/ore-dake-level-up-na-ken-season-2-arise-from-the-shadow"

@@ -58,7 +58,6 @@ const AnimeDetail = () => {
             {title?.names.ru}
           </button>
           <p className="text-xl font-medium mt-3">
-            {" "}
             - Кажется тут лишь 1 сезон. Ждем его онгоинга вместе c AniFlorz! (;
           </p>
         </div>
