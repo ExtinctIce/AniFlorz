@@ -3,7 +3,7 @@ import { api } from "../../api";
 import { Pagination, PaginationProps } from "antd";
 import { TitleList, IPagination, ITitle } from "../../types/anime.type";
 import UpdateCard from "../../components/UpdateCard/UpdateCard";
-import SearchMain from "../../widgets/SearchMain";
+import SearchMain from "../../widgets/SearchWidgets/SearchMain";
 
 const AnimeList = () => {
   const [allTitles, setAllTitles] = useState<ITitle[]>();

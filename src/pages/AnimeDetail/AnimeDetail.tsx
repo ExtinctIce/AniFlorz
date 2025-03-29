@@ -3,7 +3,9 @@ import { getTitle } from "../../api";
 import { useParams } from "react-router-dom";
 import { List } from "../../types/schedule.type";
 import ReactPlayer from "react-player";
-import SearchMain from "../../widgets/SearchMain";
+import SearchMain from "../../widgets/SearchWidgets/SearchMain";
+import TitleDetails from "../../widgets/InfoTitleDetails/detailsInfo/TitleDetails";
+// import { EpisodeList } from "../../widgets/InfoTitleDetails/EpisodeShared/EpisodeShared";
 
 const AnimeDetail = () => {
   const { code } = useParams();
@@ -121,11 +123,6 @@ const AnimeDetail = () => {
           </div>
 
           <div className="flex items-center mr-10">
-            {/* <BsFillGearFill
-            // onClick={renderQuality}
-            className="mb-3 mr-5 text-xl cursor-pointer"
-          /> */}
-
             <button
               onClick={handleNextEpisode}
               disabled={
@@ -140,66 +137,38 @@ const AnimeDetail = () => {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-2 ml-5 mr-3 mt-4 border 1px rounded-2xl border-neutral-800 p-2">
-        {title?.player?.list?.map((episode) => (
+      <div className="grid lg:grid-cols-12 gap-2 ml-5 mr-3 mt-4 rounded-2xl p-2">
+        {title?.player?.list?.map((episode: any) => (
           <div
             key={episode.episode}
-            className={`bg-neutral-900 rounded-lg px-4 py-2 text-white hover:bg-neutral-800 shadow-none transition-shadow duration-300 cursor-pointer hover:shadow-lg hover:shadow-neutral-800 ${
-              activeEpisode === String(episode.episode) ? "bg-neutral-900" : ""
-            }`}
+            className={`relative rounded-lg overflow-hidden cursor-pointer transition-transform duration-300
+                        ${
+                          activeEpisode === String(episode.episode)
+                            ? "scale-110 shadow-md shadow-neutral-700"
+                            : "hover:shadow-lg hover:shadow-neutral-700"
+                        }`}
             onClick={() => handleEpisodeClick(String(episode.episode))}
+            style={{
+              gridColumn: "span 1",
+            }}
           >
-            Серия: {episode.episode}
+            <img
+              src={`https://static-libria.weekstorm.one${episode.preview}`}
+              className="w-full h-auto object-cover rounded-lg"
+              style={{
+                aspectRatio: "16/9",
+              }}
+            />
+
+            <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-sm p-2 rounded-b-lg">
+              Серия {episode.episode}: {episode.name}
+            </div>
           </div>
         ))}
       </div>
 
       {/* <button className="">{title?.player?.list[0].skips.opening[0]}</button> */}
-
-      <div className="flex md:flex-row gap-8 mt-4 ml-5 mr-4 border 1px rounded-2xl border-neutral-800 pt-2 pb-2 pr-2 ">
-        <img
-          src={`https://static-libria.weekstorm.one${title?.posters?.small?.url}`}
-          alt=""
-          className="rounded-lg object-cover ml-2"
-        />
-        <div className="flex flex-1">
-          <div className="inline-block max-h-[850px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10"></div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col">
-            <p className="font-medium text-xl">
-              Жанры: {title?.genres?.join(", ")}
-            </p>
-          </div>
-          <p className="text-base md:text-lg text-neutral-600 hidden md:block">
-            {title?.description}
-          </p>
-          <hr className="h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
-          <div className="text-xl semibold font-semibold">
-            Информация об аниме - {title?.type.full_string}
-          </div>
-          <div className="text-xl font-sans">
-            Год выхода - {title?.season.year}
-          </div>
-          <div className="text-xl font-sans">
-            Количество эпизодов - {title?.type.episodes}
-          </div>
-          <div className="text-xl font-sans">
-            Статус - {title?.status.string}
-          </div>
-          <div className="text-xl font-sans">
-            Аниме - {title?.season.string}
-          </div>
-
-          <div className="border 1px rounded-2xl border-neutral-800 p-1 w-5/6">
-            <div>
-              <p className="text-xl ml-1">Все сезоны этого аниме</p>
-              <hr className="my-2 h-0.5 border-t-0 bg-neutral-100 dark:bg-white/10" />
-            </div>
-            <div className="flex">{title?.franchises && getSeasond()}</div>
-          </div>
-        </div>
-      </div>
+      <TitleDetails title={title} getSeasond={getSeasond} />
     </div>
   );
 };

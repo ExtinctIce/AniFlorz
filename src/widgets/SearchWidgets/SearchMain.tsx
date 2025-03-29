@@ -2,7 +2,7 @@
 // import { ITitle, TitleList } from "../types/anime.type";
 // import { api } from "../api";
 import { Link } from "react-router-dom";
-import Searcher from "../features/Searcher";
+import Searcher from "../../features/Searcher";
 
 const SearchMain = () => {
   // const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -54,28 +54,6 @@ const SearchMain = () => {
             Для вас
           </Link>
 
-          {/* <form
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            className="w-7/12 flex z-30"
-          >
-            <TbZoom
-              onClick={() => setIsSearchOpen(true)}
-              className="text-4xl p-1 hidden lg:flex items-center mr-2 hover:scale-110 duration-200 cursor-pointer mt-3 bg-neutral-800 rounded-full opacity-70"
-            />
-            <div className="w-full">
-              <input
-                onClick={() => setIsSearchOpen(true)}
-                type="text"
-                placeholder="Найти аниме"
-                className="hidden lg:flex text-white bg-zinc-900 w-full rounded-3xl p-4"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
-          </form> */}
-
           <div className="flex items-center z-30 justify-center">
             <Searcher />
 
@@ -90,32 +68,6 @@ const SearchMain = () => {
             </Link>
           </div>
         </div>
-        {/* {isSearchOpen && searchTitle && searchTitle.length > 0 && (
-          <div
-            className="fixed z-50 flex justify-center inset-0 bg-black bg-opacity-50 py-14"
-            onClick={() => setIsSearchOpen(false)}
-          >
-            <div
-              className="bg-neutral-950 max-w-6xl max-h-screen w-full rounded-2xl cursor-pointer truncate"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div
-                className="grid grid-cols-6"
-                onClick={() => setIsSearchOpen(false)}
-              >
-                {searchTitle &&
-                  searchTitle.map((title) => (
-                    <UpdateCard
-                      key={title?.id}
-                      title={title?.names.ru}
-                      code={title?.code || "N/A"}
-                      image={title?.posters.original?.url || ""}
-                    />
-                  ))}
-              </div>
-            </div>
-          </div>
-        )} */}
       </header>
     </>
   );

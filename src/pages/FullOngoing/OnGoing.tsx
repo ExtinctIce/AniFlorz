@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getSchedule } from "../../api";
 import { IScheduleArray } from "../../types/schedule.type";
 import AnimeCard from "../../components/AnimeCard/AnimeCard";
-import SearchMain from "../../widgets/SearchMain";
+import SearchMain from "../../widgets/SearchWidgets/SearchMain";
 
 const OnGoing = () => {
   const [schedule, setSchedule] = useState<IScheduleArray>([]);
