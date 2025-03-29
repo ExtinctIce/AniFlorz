@@ -1,17 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getTitle } from "../../api";
 import { useParams } from "react-router-dom";
 import { List } from "../../types/schedule.type";
 import ReactPlayer from "react-player";
 import SearchMain from "../../widgets/SearchWidgets/SearchMain";
 import TitleDetails from "../../widgets/InfoTitleDetails/detailsInfo/TitleDetails";
-// import { EpisodeList } from "../../widgets/InfoTitleDetails/EpisodeShared/EpisodeShared";
+import EpisodePrewievShared from "../../widgets/InfoTitleDetails/EpisodeShared/EpisodeShared";
+import { NextHandleEpisode } from "../../widgets/InfoTitleDetails/NextEpisode/NextEpisode";
 
 const AnimeDetail = () => {
   const { code } = useParams();
   const [title, setTitle] = useState<List>();
   const [activeEpisode, setActiveEpisode] = useState<string>("1");
   const [activeQuality, setActiveQuality] = useState<string>("fhd");
+  const playerRef = useRef<ReactPlayer>(null);
+  const [skipOpening, setSkipOpening] = useState(false);
+  const [isOpeningSkipped, setIsOpeningSkipped] = useState(false);
 
   const createTitle = async () => {
     const timeoutTitle = code && (await getTitle(code));
@@ -26,12 +30,13 @@ const AnimeDetail = () => {
     createTitle();
   }, [code]);
 
-  console.log(title);
   const handleNextEpisode = () => {
     const totalEpisodes = title?.player?.list?.length || 0;
     const currentEpisodeNumber = parseInt(activeEpisode, 10);
     const nextEpisodeNumber = Math.min(currentEpisodeNumber + 1, totalEpisodes);
     setActiveEpisode(nextEpisodeNumber.toString());
+    setSkipOpening(false);
+    setIsOpeningSkipped(false);
   };
 
   const getVideoUrl = () => {
@@ -52,6 +57,36 @@ const AnimeDetail = () => {
     }
   };
 
+  const getOpeningSkipTimes = () => {
+    const episode = title?.player?.list?.find(
+      (ep) => ep.episode === Number(activeEpisode)
+    );
+    return episode?.skips?.opening || [];
+  };
+
+  const handleReady = () => {
+    if (skipOpening && !isOpeningSkipped) {
+      const openingSkipTimes = getOpeningSkipTimes();
+
+      if (openingSkipTimes.length === 2 && playerRef.current) {
+        const startTime = openingSkipTimes[0];
+        const endTime = openingSkipTimes[1];
+
+        if (
+          typeof startTime === "number" &&
+          typeof endTime === "number" &&
+          !isNaN(startTime) &&
+          !isNaN(endTime)
+        ) {
+          playerRef.current.seekTo(endTime);
+          // setIsOpeningSkipped(true);
+        } else {
+          console.warn("Invalid skip time", openingSkipTimes);
+        }
+      }
+    }
+  };
+
   const getSeasond = () => {
     if (!title?.franchises || title.franchises.length === 0) {
       return (
@@ -59,9 +94,6 @@ const AnimeDetail = () => {
           <button className="m-1 text-xl font-semibold text-white cursor-pointer hover:text-white border border-neutral-80 focus:ring-4 focus:outline-none focus:neutral-300 rounded-lg px-4 py-2 text-center dark:border-neutral-700 dark:text-neutral-100 dark:hover:text-white dark:focus:ring-neutral-800 hover:bg-neutral-800">
             {title?.names.ru}
           </button>
-          <p className="text-xl font-medium mt-3">
-            - Кажется тут лишь 1 сезон. Ждем его онгоинга вместе c AniFlorz! (;
-          </p>
         </div>
       );
     }
@@ -92,13 +124,14 @@ const AnimeDetail = () => {
               (ep) => ep.episode === Number(activeEpisode)
             ) && (
               <ReactPlayer
-                getCurrentSeasonName
+                ref={playerRef}
                 width="100%"
                 height="100%"
                 className="w-full aspect-video rounded-lg"
                 controls
                 autoPlay
                 url={`https://cache.libria.fun${getVideoUrl()}`}
+                onReady={handleReady}
               />
             )}
           </div>
@@ -120,54 +153,32 @@ const AnimeDetail = () => {
               <option value="sd">480p</option>
               <option value="fhd">1080p</option>
             </select>
+            {!isOpeningSkipped && (
+              <button
+                className="text-gray-900 border duration-500 transform border-pink-500 focus:neutral-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center me-2 mb-2 dark:text-neutral-100 cursor-pointer hover:bg-pink-700"
+                onClick={() => {
+                  setSkipOpening(true);
+                  handleReady();
+                }}
+              >
+                Пропустить опенинг
+              </button>
+            )}
           </div>
-
-          <div className="flex items-center mr-10">
-            <button
-              onClick={handleNextEpisode}
-              disabled={
-                parseInt(activeEpisode, 10) >=
-                (title?.player?.list?.length || 0)
-              }
-              className="text-gray-900 hover:text-white border border-neutral-80 focus:ring-4 focus:outline-none focus:neutral-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center me-2 mb-2 dark:border-neutral-700 dark:text-neutral-100 dark:hover:text-white dark:focus:ring-neutral-800 cursor-pointer hover:bg-neutral-800"
-            >
-              след. серия
-            </button>
-          </div>
+          <NextHandleEpisode
+            title={title}
+            activeEpisode={activeEpisode}
+            handleNextEpisode={handleNextEpisode}
+          />
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-2 ml-5 mr-3 mt-4 rounded-2xl p-2">
-        {title?.player?.list?.map((episode: any) => (
-          <div
-            key={episode.episode}
-            className={`relative rounded-lg overflow-hidden cursor-pointer transition-transform duration-300
-                        ${
-                          activeEpisode === String(episode.episode)
-                            ? "scale-110 shadow-md shadow-neutral-700"
-                            : "hover:shadow-lg hover:shadow-neutral-700"
-                        }`}
-            onClick={() => handleEpisodeClick(String(episode.episode))}
-            style={{
-              gridColumn: "span 1",
-            }}
-          >
-            <img
-              src={`https://static-libria.weekstorm.one${episode.preview}`}
-              className="w-full h-auto object-cover rounded-lg"
-              style={{
-                aspectRatio: "16/9",
-              }}
-            />
+      <EpisodePrewievShared
+        title={title}
+        activeEpisode={activeEpisode}
+        handleEpisodeClick={handleEpisodeClick}
+      />
 
-            <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-70 text-white text-sm p-2 rounded-b-lg">
-              Серия {episode.episode}: {episode.name}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* <button className="">{title?.player?.list[0].skips.opening[0]}</button> */}
       <TitleDetails title={title} getSeasond={getSeasond} />
     </div>
   );
