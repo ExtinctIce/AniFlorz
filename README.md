@@ -1,1 +1,1 @@
-My first project. React, TypeScript, Mobx, Tailwind 
+My first project - React, TypeScript, Mobx, Tailwind. Further more.
