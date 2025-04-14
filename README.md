@@ -1,1 +1,1 @@
-AniFlorz - мой самый первый проект. 
+My first project. React, TypeScript, Mobx, Tailwind 
