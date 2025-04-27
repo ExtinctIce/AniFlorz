@@ -83,7 +83,7 @@ export const AnimeCommunity = observer(() => {
                   Создатель: {item.origin.title}
                 </p>
 
-                {/* Статистика */}
+                
                 <div className="flex items-center justify-between text-sm text-gray-500">
                   <div className="flex items-center gap-2">
                     <IoEye className="w-4 h-4" />
