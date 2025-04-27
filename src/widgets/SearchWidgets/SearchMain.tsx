@@ -9,7 +9,7 @@ const SearchMain = observer(() => {
   const userData = storeAuth.getUserData();
 
   useEffect(() => {
-    // Проверяем наличие данных в localStorage при монтировании
+    // глянь в локу, тут часть кода нах не нужна
     const savedToken = localStorage.getItem('auth_token');
     const savedUserData = localStorage.getItem('user_data');
     const savedIsAuth = localStorage.getItem('isAuth') === 'true';
