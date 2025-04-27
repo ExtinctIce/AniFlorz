@@ -32,7 +32,7 @@ export const KodikPlayer = ({ titleInfo }: KodikPlayerProps) => {
   };
 
   useEffect(() => {
-    // Очистка iframe при размонтировании
+   
     return () => {
       if (iframeRef.current) {
         iframeRef.current.src = '';
