@@ -10,7 +10,6 @@ const TrailerAnimeRandom = () => {
   const toggleMuted = () => {
     setMuted(!muted);
   };
-
   return (
     <>
       <div className="w-full bg-cover z-[-10]">

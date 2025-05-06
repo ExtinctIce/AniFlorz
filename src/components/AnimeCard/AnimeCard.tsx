@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FC } from "react";
 
-interface IAnimeCard {
+export type IAnimeCard = {
   id: number;
   poster: string;
   title?: string;
@@ -9,7 +9,7 @@ interface IAnimeCard {
   handleChooseAnimeCard: (id: number, type: string) => void;
   animeCardId: number;
   desc?: string;
-}
+};
 
 const AnimeCard: FC<IAnimeCard> = ({
   id,
@@ -30,7 +30,9 @@ const AnimeCard: FC<IAnimeCard> = ({
       <Link to={`/titles/${code}`} className="relative block">
         {animeCardId === id && (
           <div className="absolute top-0 inset-0 bg-black/80 z-10 flex p-2 group-hover:scale-105 flex-col">
-            <p className="relative text-lg font-bold m-2 opacity-80">{title?.slice(0, 71)}</p>
+            <p className="relative text-lg font-bold m-2 opacity-80">
+              {title?.slice(0, 71)}
+            </p>
             <p className="text-white text-sm md:text-base opacity-80 m-1 ">
               {desc?.slice(0, 90)}
             </p>

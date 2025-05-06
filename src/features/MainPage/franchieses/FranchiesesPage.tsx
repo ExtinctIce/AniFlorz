@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { KodikPlayer } from "../KodikPlayer/KodikPlayer";
+// import { KodikPlayer } from "../KodikPlayer/KodikPlayer";
 import { observer } from "mobx-react-lite";
 import franchiesesStoreApi from "../../../shared/store/stores-api-main/franchieses-store-api";
 
@@ -91,14 +91,14 @@ export const FranchiesesPage = observer((props: any) => {
           ))}
         </motion.div>
       </div>
-      <KodikPlayer
+      {/* <KodikPlayer
         titleInfo={{
           id: props.id,
           code: props.code,
           episode: 1,
           translation: "false",
         }}
-      />
+      /> */}
     </>
   );
 });

@@ -28,7 +28,6 @@ class StoreAuth {
   userData: UserData | null = null;
 
   constructor() {
-    // Восстанавливаем состояние из localStorage при инициализации
     const savedAuth = localStorage.getItem('isAuth') === 'true';
     const savedUserData = localStorage.getItem('user_data');
     

@@ -26,8 +26,8 @@ const HomePage = () => {
   }, []);
 
   const handleChooseAnimeCard = (id: number, type: string) => {
-    if (type === "show") setAnimeCardId(id);
-    if (type === "delete") setAnimeCardId(0);
+    if (type === "show") return setAnimeCardId(id);
+    if (type === "delete") return setAnimeCardId(0);
   };
 
   const descCardId6 = schedule[0]?.list.find((card) => card.id === animeCardId);

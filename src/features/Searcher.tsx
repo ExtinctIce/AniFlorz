@@ -25,7 +25,7 @@ const Searcher = () => {
       });
       setSearchTitle(response?.data.list || []);
     } catch (error) {
-      console.error("Ошибка при поиске:", error);
+      console.log(error);
     }
   }, [search]);
 

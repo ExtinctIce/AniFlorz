@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface TitleInfo {
   code: string;
@@ -15,27 +15,26 @@ export const KodikPlayer = ({ titleInfo }: KodikPlayerProps) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const generateKodikUrl = (info: TitleInfo) => {
-    const baseUrl = 'https://kodik.info/serial';
+    const baseUrl = "https://kodik.info/serial";
     const { id, code, episode, translation } = info;
-    
+
     let url = `${baseUrl}/${id}/${code}/720p`;
-    
+
     if (episode) {
       url += `?episode=${episode}`;
     }
-    
+
     if (translation) {
-      url += `${episode ? '&' : '?'}translations=${translation}`;
+      url += `${episode ? "&" : "?"}translations=${translation}`;
     }
-    
+
     return url;
   };
 
   useEffect(() => {
-    // Очистка iframe при размонтировании
     return () => {
       if (iframeRef.current) {
-        iframeRef.current.src = '';
+        iframeRef.current.src = "";
       }
     };
   }, []);
@@ -51,4 +50,4 @@ export const KodikPlayer = ({ titleInfo }: KodikPlayerProps) => {
       />
     </div>
   );
-}; 
+};
