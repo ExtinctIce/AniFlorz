@@ -1,32 +1,32 @@
 import { Link } from "react-router-dom";
 import Searcher from "../../features/Searcher";
 import { observer } from "mobx-react-lite";
-import { storeAuth } from "../../shared/store/store-auth/store-auth";
-import { useEffect } from "react";
+// import { storeAuth } from "../../shared/store/store-auth/store-auth";
+// import { useEffect } from "react";
 
 const SearchMain = observer(() => {
-  const isAuth = storeAuth.getIsAuth();
-  const userData = storeAuth.getUserData();
+  // const isAuth = storeAuth.getIsAuth();
+  // const userData = storeAuth.getUserData();
 
-  useEffect(() => {
-    // Проверяем наличие данных в localStorage при монтировании
-    const savedToken = localStorage.getItem("auth_token");
-    const savedUserData = localStorage.getItem("user_data");
-    const savedIsAuth = localStorage.getItem("isAuth") === "true";
+  // useEffect(() => {
+  //   // глянь в локу, тут часть кода нах не нужна
+  //   const savedToken = localStorage.getItem("auth_token");
+  //   const savedUserData = localStorage.getItem("user_data");
+  //   const savedIsAuth = localStorage.getItem("isAuth") === "true";
 
-    if (savedToken && savedUserData && savedIsAuth && !isAuth) {
-      storeAuth.setIsAuth(true);
-      storeAuth.setUserData(JSON.parse(savedUserData));
-    }
-  }, [isAuth]);
+  //   if (savedToken && savedUserData && savedIsAuth && !isAuth) {
+  //     storeAuth.setIsAuth(true);
+  //     storeAuth.setUserData(JSON.parse(savedUserData));
+  //   }
+  // }, [isAuth]);
 
-  const handleLogout = () => {
-    storeAuth.setIsAuth(false);
-    storeAuth.clearUserData();
-    localStorage.removeItem("auth_token");
-    localStorage.removeItem("user_data");
-    localStorage.removeItem("isAuth");
-  };
+  // const handleLogout = () => {
+  //   storeAuth.setIsAuth(false);
+  //   storeAuth.clearUserData();
+  //   localStorage.removeItem("auth_token");
+  //   localStorage.removeItem("user_data");
+  //   localStorage.removeItem("isAuth");
+  // };
 
   return (
     <>
@@ -66,12 +66,12 @@ const SearchMain = observer(() => {
                 >
                   Выйти
                 </button>
-              </div> */}  
-              <Link to="/login">
-                <button className="py-2 px-8 font-semibold border border-yellow-300 bg-yellow-400 shadow rounded-3xl hover:scale-105 duration-200 transform">
-                  Войти
-                </button>
-              </Link>
+              </div> */}
+            <Link to="/login">
+              <button className="py-2 px-8 font-semibold border border-yellow-300 bg-yellow-400 shadow rounded-3xl hover:scale-105 duration-200 transform">
+                Войти
+              </button>
+            </Link>
           </div>
         </div>
       </header>

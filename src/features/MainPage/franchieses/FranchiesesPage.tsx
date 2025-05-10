@@ -54,7 +54,7 @@ export const FranchiesesPage = observer((props: any) => {
               variants={cardAnimation}
               className="bg-neutral-900 rounded-lg overflow-hidden hover:bg-neutral-800 transition-all scale-105 duration-200 cursor-pointer"
             >
-              {/* Изображение */}
+              
               <Link to={`/titles/${props.code}`}>
                 <div className="relative">
                   <img
@@ -70,7 +70,7 @@ export const FranchiesesPage = observer((props: any) => {
                 </div>
               </Link>
 
-              {/* Информация */}
+             
               <div className="p-3">
                 <h3 className="text-white font-medium mb-1 line-clamp-1">
                   {item.name}

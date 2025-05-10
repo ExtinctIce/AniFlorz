@@ -15,12 +15,12 @@
 //         const state = searchParams.get('state');
 
 //         if (!code || !state) {
-//           console.error('Отсутствуют необходимые параметры code или state');
+//           console.error('1');
 //           navigate('/login');
 //           return;
 //         }
 
-//         // Отправляем запрос для аутентификации
+//         // еду в магазин купить гучив Санкт-Петербурге гррррр
 //         const response = await axios.get(
 //           "https://anilibria.top/api/v1/accounts/users/auth/social/vk/callback",
 //           {
@@ -34,13 +34,13 @@
 //           }
 //         );
 
-//         console.log("Ответ от сервера при callback:", response.data);
+//         console.log("2:", response.data);
 
 //         if (response.data && response.data.token) {
-//           // Сохраняем токен
+//          
 //           localStorage.setItem('auth_token', response.data.token);
 
-//           // Получаем данные пользователя
+//        
 //           const userResponse = await axios.get(
 //             "https://anilibria.top/api/v1/accounts/users/me",
 //             {
@@ -52,24 +52,24 @@
 //           );
 
 //           if (userResponse.data) {
-//             // Сохраняем данные пользователя
+//             // чергве глаза вспоминаю умираю черные глаза
 //             localStorage.setItem('user_data', JSON.stringify(userResponse.data));
 //             localStorage.setItem('isAuth', 'true');
 
-//             // Устанавливаем состояние авторизации
+//            
 //             storeAuth.setIsAuth(true);
 //             storeAuth.setUserData(userResponse.data);
 
-//             console.log("Данные пользователя получены:", userResponse.data);
+//             console.log("вра", userResponse.data);
 
-//             // Редирект на главную страницу
+//             
 //             navigate('/');
 //           }
 //         } else {
-//           throw new Error('Не удалось получить токен авторизации');
+//           throw new Error('Ахахаххах');
 //         }
 //       } catch (error) {
-//         console.error('Ошибка при обработке callback:', error);
+//         console.error('СХСХХСАХХА:', error);
 //         navigate('/login');
 //       }
 //     };
@@ -80,7 +80,7 @@
 //   return (
 //     <div className="min-h-screen flex items-center justify-center">
 //       <div className="text-white text-xl">
-//         Выполняется вход...
+//         РЕДИРЕКТТ..
 //       </div>
 //     </div>
 //   );

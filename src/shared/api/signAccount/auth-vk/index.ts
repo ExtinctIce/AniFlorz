@@ -3,10 +3,10 @@
 
 // export const handleLoginVk = async () => {
 //   try {
-//     console.log("Начинаем процесс авторизации VK...");
+//     console.log("VK...");
     
 //     const loginUrl = "https://anilibria.top/api/v1/accounts/users/auth/social/vk/login";
-//     console.log("Отправляем запрос на:", loginUrl);
+//     console.log("запрос:", loginUrl);
     
 //     const response = await axios.get(loginUrl, {
 //       params: {
@@ -17,17 +17,17 @@
 //       },
 //     });
 
-//     console.log("Получен ответ:", response.data);
+//     console.log("ответ:", response.data);
 
 //     if (response.data && response.data.url) {
-//       console.log("Получен URL для редиректа:", response.data.url);
+//       console.log("URL:", response.data.url);
 //       console.log("Параметры ответа:", {
 //         url: response.data.url,
 //         state: response.data.state,
 //         redirect_uri: response.data.redirect_uri
 //       });
       
-//       // Сохраняем state для проверки после редиректа
+//       // вкдляпидоразов
 //       if (response.data.state) {
 //         localStorage.setItem("vk_auth_state", response.data.state);
 //         console.log("State сохранен:", response.data.state);
@@ -35,8 +35,8 @@
 //         console.warn("State не получен в ответе");
 //       }
       
-//       // Открываем окно авторизации VK
-//       console.log("Открываем окно авторизации...");
+//       // окно авторизации VK от рутов, ибо нихуя не ясно что оно перенаправляет.
+//       console.log(" окно авторизации...");
 //       const width = 800;
 //       const height = 600;
 //       const left = (window.screen.width - width) / 2;
@@ -48,22 +48,22 @@
 //         `width=${width},height=${height},top=${top},left=${left}`
 //       );
 
-//       // Слушаем сообщения от окна авторизации
+//       
 //       window.addEventListener('message', async function(event) {
 //         if (event.origin !== window.location.origin) return;
         
 //         if (event.data.type === 'vk_auth_success' && event.data.token) {
-//           // Закрываем окно авторизации
+//          
 //           authWindow?.close();
           
-//           // Сохраняем токен
+//           
 //           localStorage.setItem('auth_token', event.data.token);
           
-//           // Устанавливаем состояние авторизации
+//          
 //           storeAuth.setIsAuth(true);
 
 //           try {
-//             // Получаем данные пользователя
+//             
 //             const userResponse = await axios.get(
 //               "https://anilibria.top/api/v1/accounts/users/me/profile",
 //               {
@@ -76,7 +76,7 @@
 
 //             if (userResponse.data) {
 //               storeAuth.setUserData(userResponse.data);
-//               console.log("Данные пользователя получены:", userResponse.data);
+//               console.log("Данны:", userResponse.data);
 //             }
 //           } catch (error) {
 //             console.error("Ошибка при получении данных пользователя:", error);
@@ -84,11 +84,11 @@
 //         }
 //       });
 //     } else {
-//       console.error("В ответе отсутствует URL для редиректа:", response.data);
-//       throw new Error('Не удалось получить URL для авторизации VK');
+//       console.error("отсутствует URL:", response.data);
+//       throw new Error('Не удалось получить URL для авторизации вээка');
 //     }
 //   } catch (error) {
-//     console.error("Ошибка при авторизации через VK:", error);
+//     console.error("Ошибка при авторизации через вээка:", error);
 //     if (axios.isAxiosError(error)) {
 //       console.error("Детали ошибки:", {
 //         status: error.response?.status,
@@ -100,19 +100,19 @@
 //   }
 // };
 
-// // Функция для обработки callback после авторизации
+// // 
 // export const handleVkCallback = async (code: string, state: string) => {
 //   try {
-//     console.log("Получены параметры callback:", { code, state });
+//     console.log("лдотьдш callback:", { code, state });
     
-//     // Проверяем state для безопасности
+//     
 //     const savedState = localStorage.getItem('vk_auth_state');
-//     console.log("Сохраненный state:", savedState);
+//     console.log("стейт:", savedState);
     
-//     // Очищаем сохраненный state
+//
 //     localStorage.removeItem('vk_auth_state');
 
-//     // Отправляем запрос для аутентификации
+//    
 //     const response = await axios.get(
 //       "https://anilibria.top/api/v1/accounts/users/auth/social/vk/callback",
 //       {
@@ -127,17 +127,17 @@
 //     );
 
 //     if (response.data && response.data.token) {
-//       // Отправляем сообщение родительскому окну
+//      
 //       window.opener?.postMessage({
 //         type: 'vk_auth_success',
 //         token: response.data.token
 //       }, window.location.origin);
 //     }
     
-//     // Закрываем окно
+//    
 //     window.close();
 //   } catch (error) {
-//     console.error("Ошибка при обработке callback VK:", error);
+//     console.error("Ошибка VK:", error);
 //     window.close();
 //   }
 // };
