@@ -15,5 +15,6 @@ const Integration = ({ to, text, className }: IntegrationProps) => {
     </Link>
   );
 };
+// comment
 
 export default Integration;
