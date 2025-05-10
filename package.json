@@ -13,6 +13,7 @@
     "antd": "^5.22.5",
     "axios": "^1.7.9",
     "framer-motion": "^12.7.2",
+    "kodikwrapper": "^3.0.4",
     "mobx": "^6.13.6",
     "mobx-react-lite": "^4.1.0",
     "mobx-utils": "^6.1.0",
@@ -20,7 +21,8 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
     "react-player": "^2.16.0",
-    "react-router-dom": "^7.0.2"
+    "react-router-dom": "^7.0.2",
+    "shikimori": "^1.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

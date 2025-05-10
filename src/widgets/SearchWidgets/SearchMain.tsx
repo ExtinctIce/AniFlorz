@@ -10,9 +10,9 @@ const SearchMain = observer(() => {
 
   useEffect(() => {
     // Проверяем наличие данных в localStorage при монтировании
-    const savedToken = localStorage.getItem('auth_token');
-    const savedUserData = localStorage.getItem('user_data');
-    const savedIsAuth = localStorage.getItem('isAuth') === 'true';
+    const savedToken = localStorage.getItem("auth_token");
+    const savedUserData = localStorage.getItem("user_data");
+    const savedIsAuth = localStorage.getItem("isAuth") === "true";
 
     if (savedToken && savedUserData && savedIsAuth && !isAuth) {
       storeAuth.setIsAuth(true);
@@ -23,9 +23,9 @@ const SearchMain = observer(() => {
   const handleLogout = () => {
     storeAuth.setIsAuth(false);
     storeAuth.clearUserData();
-    localStorage.removeItem('auth_token');
-    localStorage.removeItem('user_data');
-    localStorage.removeItem('isAuth');
+    localStorage.removeItem("auth_token");
+    localStorage.removeItem("user_data");
+    localStorage.removeItem("isAuth");
   };
 
   return (
@@ -43,15 +43,15 @@ const SearchMain = observer(() => {
             <Searcher />
 
             <div className="lg:hidden"></div>
-            <button className="py-2 px-8 font-semibold border border-pink-800 bg-pink-600 shadow rounded-3xl hover:scale-105 duration-200 transform">
+            {/* <button className="py-2 px-8 font-semibold border border-yellow-300 bg-yellow-400 shadow rounded-3xl hover:scale-105 duration-200 transform">
               Premium
-            </button>
+            </button> */}
 
-            {isAuth && userData ? (
+            {/* {isAuth && userData ? (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
+                <div className="fl  ex items-center gap-2">
                   {userData.avatar?.thumbnail && (
-                    <img
+                    <img  
                       src={userData.avatar.thumbnail}
                       alt={userData.nickname}
                       className="w-8 h-8 rounded-full"
@@ -60,19 +60,18 @@ const SearchMain = observer(() => {
                   <span className="text-white">{userData.nickname}</span>
                 </div>
                 <button
-                  className="py-2 px-8 font-semibold border border-neutral-800 ml-3 bg-neutral-800 shadow rounded-3xl hover:bg-neutral-700 duration-200"
+                  className="py-2 px-8 font-semibold border border-yellow-300 bg-yellow-400 shadow rounded-3xl hover:scale-105 duration-200 transform"
+                  // className="py-2 px-8 font-semibold border border-neutral-800 ml-3 bg-neutral-800 shadow rounded-3xl hover:bg-neutral-700 duration-200"
                   onClick={handleLogout}
                 >
                   Выйти
                 </button>
-              </div>
-            ) : (
+              </div> */}  
               <Link to="/login">
-                <button className="py-2 px-8 font-semibold border border-neutral-800 ml-3 bg-neutral-800 shadow rounded-3xl hover:bg-neutral-700 duration-200">
+                <button className="py-2 px-8 font-semibold border border-yellow-300 bg-yellow-400 shadow rounded-3xl hover:scale-105 duration-200 transform">
                   Войти
                 </button>
               </Link>
-            )}
           </div>
         </div>
       </header>

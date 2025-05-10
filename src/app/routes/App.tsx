@@ -8,6 +8,7 @@ import { Login } from "../../pages/sign-in/login-page/LoginFrontend";
 import { RegistrationFrontend } from "../../pages/sign-in/RegistrationFront";
 import { GenresItemPage } from "../../pages/GenresItemPage/genresItemPage";
 import { AllGenresView } from "../../pages/AllGenresPage/AllGenresView";
+// import NpmKodik from "../../pages/kodikPageTest/KodikTestPage";
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
           <Route path="/register" element={<RegistrationFrontend />} />
           <Route path="/allgenres" element={<AllGenresView />} />
           <Route path="/genres/:id" element={<GenresItemPage />} />
+          {/* <Route path="/kodik.txt" element={<NpmKodik />} /> */}
         </Route>
       </Routes>
     </>

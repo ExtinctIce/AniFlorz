@@ -4,6 +4,8 @@ import { Pagination, PaginationProps } from "antd";
 import { TitleList, IPagination, ITitle } from "../../shared/types/anime.type";
 import UpdateCard from "../../components/UpdateCard/UpdateCard";
 import SearchMain from "../../widgets/SearchWidgets/SearchMain";
+// import { API } from "shikimori";
+// import { API } from "shikimori";
 
 const AnimeList = () => {
   const [allTitles, setAllTitles] = useState<ITitle[]>();
@@ -13,6 +15,8 @@ const AnimeList = () => {
   const changePage: PaginationProps["onChange"] = (page) => {
     setActivePage(page);
   };
+
+
 
   useEffect(() => {
     api
