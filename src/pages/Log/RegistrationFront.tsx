@@ -7,26 +7,25 @@ const RegistrationFrontend = () => {
       <div className="flex flex-col items-center">
         <div className="flex items-center justify-center mr-3 font-bold text-2xl"></div>
         <div className="p-8 rounded shadow-md w-full max-w-md border border-neutral-900 bg-neutral-900">
-          {/* das */}
           <form className="space-y-3">
             <div className="">
               <input
                 type="text"
-                className="w-full rounded-xl border bg-transparent px-3 py-[0.32rem] border-neutral-800 text-white" /* Сделал текст белым */
+                className="w-full rounded-xl border bg-transparent px-3 py-[0.32rem] border-neutral-800 text-white" 
                 placeholder="Логин"
               />
             </div>
             <div className="relative" data-twe-input-wrapper-init>
               <input
                 type="password"
-                className="peer border-neutral-800 block min-h-[auto] w-full rounded-xl border bg-transparent px-3 py-[0.32rem] text-white" /* Сделал текст белым */
+                className="peer border-neutral-800 block min-h-[auto] w-full rounded-xl border bg-transparent px-3 py-[0.32rem] text-white" 
                 placeholder="Пароль"
               />
             </div>
             <div className="relative" data-twe-input-wrapper-init>
               <input
                 type="password"
-                className="border-neutral-800 block min-h-[auto] w-full rounded-xl border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none text-white" /* Сделал текст белым */
+                className="border-neutral-800 block min-h-[auto] w-full rounded-xl border bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none text-white" 
                 placeholder="Повтор пароля"
               />
             </div>
